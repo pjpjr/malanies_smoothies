@@ -26,7 +26,7 @@ ingredients_list = st.multiselect(
 # New section to display smoothifruit nutritional information
 smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
 #st.text(smoothiefroot_response.json())
-sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=true)
+sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
 
 
 # If there are any, display the list of, ingredients
