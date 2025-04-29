@@ -23,6 +23,12 @@ ingredients_list = st.multiselect(
     ,max_selections=5
 )
 
+# New section to display smoothifruit nutritional information
+smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+st.text(smoothiefroot_response.json())
+#sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=true)
+
+
 # If there are any, display the list of, ingredients
 if ingredients_list:
     
@@ -37,10 +43,6 @@ if ingredients_list:
     my_insert_stmt = """ insert into smoothies.public.orders(ingredients,name_on_order)
             values ('""" + ingredients_string + """','""" + name_on_order + """')"""
 
-    # New section to display smoothifruit nutritional information
-    smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
-    st.text(smoothiefroot_response.json())
-    #sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=true)
 
     #st.write(my_insert_stmt)
     #st.stop()
